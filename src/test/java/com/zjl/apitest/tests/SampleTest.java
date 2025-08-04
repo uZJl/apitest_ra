@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
  */
 public class SampleTest {
 
-    @Test
+    @Test(groups = "unit")
     public void testSample() {
         // 简单的断言测试
         Assert.assertTrue(true, "这个测试应该通过");

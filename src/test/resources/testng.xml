@@ -1,8 +1,32 @@
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Test Suite">
-    <test name="API Tests">
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="API Test Suite" parallel="tests" thread-count="4">
+
+    <listeners>
+        <listener class-name="com.zjl.apitest.listeners.CustomTestListener"/>
+    </listeners>
+
+    <test name="Unit Tests" parallel="methods" thread-count="2">
+        <groups>
+            <run>
+                <include name="unit"/>
+                <exclude name="integration"/>
+            </run>
+        </groups>
         <packages>
             <package name="com.zjl.apitest.tests.*"/>
+        </packages>
+    </test>
+
+    <test name="Integration Tests" parallel="classes" thread-count="3">
+        <groups>
+            <run>
+                <include name="integration"/>
+                <exclude name="unit"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="com.zjl.apitest.repository.*"/>
+            <package name="com.zjl.apitest.service.*"/>
         </packages>
     </test>
 </suite>

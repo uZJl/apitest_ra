@@ -11,7 +11,7 @@ import org.springframework.context.annotation.PropertySource;
 @Configuration
 @ComponentScan(basePackages = {"com.zjl.apitest.service", "com.zjl.apitest.engine", "com.zjl.apitest.util"})
 @PropertySource("classpath:application.properties")
-@Import({PersistenceConfig.class})
+//@Import({PersistenceConfig.class})
 public class AppConfig {
     // 全局应用配置
 }
